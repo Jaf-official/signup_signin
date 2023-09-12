@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      form {
+        width: 60%;
+        margin: 5% 10%;
+        padding: 10%;
+        background-color: #e67e22;
+        color: #45260a;
+        border-radius: 0px 20px 0px 20px;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        font-family: inherit;
+        color: inherit;
+        border: none;
+        background-color: #fdf2e9;
+        border-radius: 9px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      input::placeholder {
+        color: #aaa;
+      }
+
+      form *:focus {
+        outline: none;
+        box-shadow: 0 0 0 0rem rgba(253, 242, 233, 0.5);
+      }
+
+      #submit {
+        background-color: rgb(69, 38, 10);
+        color: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        border-color: #fff;
+        width: 104%;
+      }
+
+      #submit:hover {
+        background-color: #251302;
+        cursor: pointer;
+      }
+
+      .container {
+        width: 800px;
+        background-color: white;
+        text-align: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 100px;
+      }
+      p,
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      h2,
+      a:hover {
+        color: #45260a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="signin.html">
+        <h2>Fill the form below to sign up</h2>
+        <input type="text" id="name" placeholder="Name" /> <br />
+        <input type="text" id="mName" placeholder="Middlename" /> <br />
+        <input type="text" id="lName" placeholder="LastName" /><br />
+        <input type="email" id="email" placeholder="Email" /> <br />
+        <input type="password" id="password" placeholder="Password" /><br />
+        <input type="submit" id="submit" value="Sign up" onclick="signUp()" />
+        <p>Already a member? <a href="signin.html">Sign In</a></p>
+      </form>
+    </div>
+
+    <script>
+      function signUp() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let mName = document.getElementById("mName").value;
+        let lName = document.getElementById("lName").value;
+        let name = document.getElementById("name").value;
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        localStorage.setItem("mName", mName);
+        localStorage.setItem("lName", lName);
+        localStorage.setItem("name", name);
+        window.location.href = "./signin.html";
+      }
+    </script>
+  </body>
+</html>
